@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Overpriced";
+  src: url('/fonts/OverpricedGhetto-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: "SofiaProRegular";
+  src: url('/fonts/SofiaProRegular.woff') format('woff');
+}
+
+@layer components{
+  .container {
+    @apply max-w-screen-xl self-center mx-auto px-6 md:px-10 py-10;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
