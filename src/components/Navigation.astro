@@ -1,14 +1,16 @@
 ---
 import { Image } from "@astrojs/image/components";
 import hamburger from "/svg/hamburger.svg";
+import hamburger_close from "/svg/hamburger-close.svg";
+
 ---
 
 <style>
   [aria-expanded="true"] .hamburger {
     opacity: 0.5;
   }
-  .primary-navigation {
-  position: absolute;
+  .mobile-navigation {
+  /* position: absolute;
   top: 0%;
   right: 0%;
   background: greenyellow;
@@ -16,7 +18,7 @@ import hamburger from "/svg/hamburger.svg";
   margin: 0;
   padding: 2rem;
   list-style: none;
-  width: 100vw;
+  width: 100vw; */
 }
 .menu-toggle {
   padding: 1em;
@@ -28,14 +30,13 @@ import hamburger from "/svg/hamburger.svg";
   cursor: pointer;
   z-index: 666;
 }
-  .primary-navigation[data-state="opened"] {
+  .mobile-navigation[data-state="opened"] {
     animation: clipPathCircleOpen 250ms ease-in-out forwards;
-    display: block;
   }
-  .primary-navigation[data-state="closing"] {
+  .mobile-navigation[data-state="closing"] {
     animation: clipPathCircleClose 250ms ease-in-out forwards;
   }
-  .primary-navigation[data-state="closed"] {
+  .mobile-navigation[data-state="closed"] {
     display: none;
   }
   @keyframes clipPathCircleOpen {
@@ -48,7 +49,7 @@ import hamburger from "/svg/hamburger.svg";
   }
 </style>
 
-<nav>
+<nav class="md:flex md:items-center">
   <a href="/">
     <svg
       width="180"
@@ -97,18 +98,21 @@ import hamburger from "/svg/hamburger.svg";
     </svg>
   </a>
   <button
-    aria-controls="primary-navigation"
+    aria-controls="mobile-navigation"
     aria-label="Menu"
     aria-expanded="false"
-    class="menu-toggle text-white border p-0"
+    class="menu-toggle text-white md:hidden border p-0 absolute z-50"
   >
     <span class="hidden">Menu</span>
-    <div class="hamburger"><img src={hamburger} alt="" /></div>
+    <div class="hamburger"><img src={hamburger} alt=""/></div>
+    <div class="hamburger-close"><img src={hamburger_close} alt="" /></div>
   </button>
   <ul
-    data-state="closed"
     id="primary-navigation"
-    class="primary-navigation nav-links text-mccann-black font-sofia_regular text-xl"
+    class="primary-navigation 
+    hidden md:flex md:w-full 
+    font-sofia_regular text-xl 
+    justify-end gap-8 bg-transparent text-mccann-light-grey"
     role="navigation"
   >
     <li><a href="/Work">Work</a></li>
@@ -116,11 +120,24 @@ import hamburger from "/svg/hamburger.svg";
     <li><a href="/about/">About</a></li>
     <li><a href="/w-label/">White Label</a></li>
   </ul>
+  <ul
+    data-state="closed"
+    id="mobile-navigation"
+    class="mobile-navigation 
+    absolute top-0 left-0 z-30 bg-mccann-green w-full h-screen font-sofia_regular text-xl flex-col pt-20 px-12"
+    role="navigation"
+  >
+    <li class="flex my-12 justify-center"><a href="/Work">Work</a></li>
+    <li class="flex my-12 justify-center"><a href="/team/">Team</a></li>
+    <li class="flex my-12 justify-center"><a href="/about/">About</a></li>
+    <li class="flex my-12 justify-center"><a href="/w-label/">White Label</a></li>
+  </ul>
 </nav>
 
 <script>
   const menuToggle = document.querySelector(".menu-toggle");
-  const siteNavigation = document.querySelector(".primary-navigation");
+  const siteNavigation = document.querySelector(".mobile-navigation");
+  const hamburger = menuToggle.querySelector(".hamburger");
 
   if (menuToggle != null) {
     menuToggle.addEventListener("click", () => {
@@ -135,6 +152,7 @@ import hamburger from "/svg/hamburger.svg";
   function openMenu() {
     menuToggle.setAttribute("aria-expanded", "true");
     siteNavigation.setAttribute("data-state", "opened");
+    hamburger.classList.toggle('hidden');
   }
   function closeMenu() {
     menuToggle.setAttribute("aria-expanded", "false");
@@ -144,6 +162,7 @@ import hamburger from "/svg/hamburger.svg";
       "animationend",
       () => {
         siteNavigation.setAttribute("data-state", "closed");
+        hamburger.classList.toggle('hidden');
       },
       { once: true }
     );

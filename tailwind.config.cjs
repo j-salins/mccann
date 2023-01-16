@@ -6,7 +6,7 @@ module.exports = {
 			colors: {
 				'mccann-black': '#000000',
 				'mccann-dark-grey': '#4D4D4D',	
-				'mccann-light-grey': '#CCCCCC',
+				'mccann-light-grey': '#CBCBCB',
 				'mccann-white': '#F2F2F2',
 				'mccann-green': '#15CE79'
 			},
