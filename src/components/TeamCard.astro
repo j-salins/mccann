@@ -1,0 +1,15 @@
+---
+export interface Props {
+	name: string;
+	occupation: string;
+	src: string;
+}
+
+const { src, name, occupation } = Astro.props;
+---
+
+<div class="mb-12">
+  <img src={src} alt="" class="object-cover" width="1000px" height="1500px" loading="lazy">
+  <h5 set:html={name} class=" pt-2 text-2xl text-mccann-light-grey"/>
+  <p set:html={occupation} class=" font-overpriced text-mccann-dark-grey " />
+</div>

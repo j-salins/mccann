@@ -2,27 +2,37 @@
 import Social from "./Social.astro";
 ---
 
-<footer class="container flex flex-col md:flex-row gap-y-14">
-  <div class=" w-1/4">
-    <h3 class="text-4xl text-mccann-light-grey pb-4">New business</h3>
+<footer id="footer" class="container md:grid grid-cols-4 gap-4">
+  <div class="flex flex-col md:flex-row col-span-4 mb-10">
+    <div>
+      <h1 class="text-7xl">McCANN Riga</h1>
+      <p class="text-2xl">30 Terbatas Street, Riga, LV–1011</p>
+      <p class="text-2xl">+371 67 503 314</p>
+    </div>
+    <div class="flex-1 flex items-end md:ml-48">
+      <a href="" class="text-2xl text-mccann-green py-5 pb-9 px-5 bg-[url('/svg/footer-bubble.svg')] bg-no-repeat bg-contain bg-center ">hello@mccan.lv</a>
+    </div>
+  </div>
+  <div class=" mb-14">
+    <h3 class="text-4xl text-mccann-light-grey pb-4">New <br> business</h3>
     <a href="" class="block text-lg text-mccann-light-grey">Ieva Danieljana</a>
     <a href="tel:+371 2 754 56 53" class="block text-lg text-mccann-light-grey">+371 2 754 56 53</a>
     <a href="mailto:ieva.danieljana@mccann.lv" class="block text-lg text-mccann-light-grey">ieva.danieljana@mccann.lv</a>
   </div>
-  <div class=" w-1/4">
+  <div class=" mb-14">
     <h3 class="text-4xl text-mccann-light-grey pb-4">Media <br> Inquiries</h3>
     <a href="" class="block text-lg text-mccann-light-grey">Kristaps Silins</a>
     <a href="tel:+371 2 639 92 82" class="block text-lg text-mccann-light-grey">+371 2 639 92 82</a>
     <a href="mailto:ieva.danieljana@mccann.lv" class="block text-lg text-mccann-light-grey">kristaps.silins@mccann.lv</a>
   </div>
-  <div class=" w-1/4">
+  <div class=" mb-14">
     <h3 class="text-4xl text-mccann-light-grey pb-4">Career Opportunities</h3>
     <a href="" class="block text-lg text-mccann-light-grey">Madara Gore-Bērziņa</a>
     <a href="tel:+371 2 599 02 09" class="block text-lg text-mccann-light-grey">+371 2 599 02 09</a>
     <a href="mailto:ieva.danieljana@mccann.lv" class="block text-lg text-mccann-light-grey">madara.gore@mccann.lv</a>
   </div>
 
-  <div class="flex flex-col my-6 md:my-0 gap-y-8 w-1/4">
+  <div class="flex flex-col my-6 md:my-0 gap-y-8">
     <Social platform="FaceBook" username="mccann" />
     <Social platform="Instagram" username="mccann" />
     <Social platform="LinkedIn" username="mccann" />

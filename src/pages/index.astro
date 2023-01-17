@@ -6,7 +6,7 @@ import Card from '../components/Card.astro';
 
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Mccann - Home">
 	<Header />
 	<main>
 		<section class="bg-[url('/svg/home-sec1-1.svg')] bg-no-repeat bg-contain bg-center md:h-[1100px]">
@@ -51,10 +51,50 @@ import Card from '../components/Card.astro';
 			<div class="md:flex">
 				<div class="md:w-1/2">
 					<h1 class="font-thin text-5xl md:text-6xl leading-tight pt-36">Calculated risk that racks up awards</h1>
-					<p>Solid forerunner of Latvian ad industry with consecutive Agency of the Year awards four years in a row.</p>
+					<p class="md:pl-60 pt-12">Solid forerunner of Latvian ad industry with consecutive Agency of the Year awards four years in a row.</p>
 				</div>
 				<div class="md:w-1/2">
 					<img class="" src="/svg/home-sec3-1.svg" />
+				</div>
+			</div>
+		</section>
+
+		<section id="work">
+			<div class="container">
+				<div class="md:flex">
+					<div class="md:max-w-xl mb-8">
+						<h1 class="font-thin text-4xl md:text-6xl leading-tight pt-8">Calculated risk makes excellent work
+						</h1>
+					</div>
+				</div>
+				<div>
+					<div class="grid grid-cols-2 gap-2 columns-2">
+						<img class="w-full span aspect-video max-w-lg object-cover self-end place-self-end" src="/home/work/01.jpg" />
+						<img class="w-full aspect-video object-cover" src="/home/work/02.jpg" />
+						<img class="w-full aspect-video object-cover" src="/home/work/03.jpg" />
+						<img class="w-full aspect-video max-w-xs object-cover" src="/home/work/04.jpg" />
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="team">
+			<div class="container">
+				<div class="md:flex">
+					<div class="md:max-w-lg mb-8">
+						<h1 class="font-thin text-4xl md:text-6xl leading-tight pt-8">
+							The team that makes it all come true
+						</h1>
+					</div>
+				</div>
+				<div class="grid grid-cols-2 md:grid-cols-4 gap-2 columns-2">
+					<img class="w-full aspect-square object-cover md:pt-24 self-end" src="/home/team/01.jpg" />
+					<img class="w-full aspect-square object-cover md:h-96 md:row-span-2 md:mt-36" src="/home/team/02.jpg" />
+					<img class="w-full aspect-square object-cover self-end" src="/home/team/03.jpg" />
+					<img class="w-full aspect-square object-cover md:row-span-2 place-self-center" src="/home/team/04.jpg" />
+					<img class="w-full aspect-square object-cover md:pl-16" src="/home/team/05.jpg" />
+					<img class="w-full aspect-square object-cover" src="/home/team/06.jpg" />
+					<img class="w-full aspect-square object-cover col-start-2 -mt-16" src="/home/team/07.jpg" />
 				</div>
 			</div>
 		</section>

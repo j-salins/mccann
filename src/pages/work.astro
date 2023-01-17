@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+---
+
+<Layout title="Work - Mccann">
+	<Header />
+	<main>
+		<section class="bg-[url('/svg/home-sec1-1.svg')] bg-no-repeat bg-contain bg-center md:h-[1100px]">
+			<div class="container md:flex">
+				<div class="md:w-2/3 pb-20 md:pb-32">
+					<h1 class="font-thin text-5xl md:text-8xl  text-mccann-light-grey leading-tight">We’ll let our work speak for itself
+					</h1>
+				</div>
+		
+				<div class="md:w-1/3 flex flex-col justify-end">
+					<h3 class=" font-overpriced text-3xl text-mccann-dark-grey pb-8">We create ads <br> that speak volumes.</h3>
+					<a href="#" class="font-overpriced text-xl text-mccann-green">Ready to talk?</a>
+				</div>
+			</div>
+		</section>
+	</main>
+	<Footer />
+</Layout>

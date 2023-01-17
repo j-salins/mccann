@@ -1,5 +1,4 @@
 ---
-import { Image } from "@astrojs/image/components";
 import hamburger from "/svg/hamburger.svg";
 import hamburger_close from "/svg/hamburger-close.svg";
 
@@ -115,10 +114,10 @@ import hamburger_close from "/svg/hamburger-close.svg";
     justify-end gap-8 bg-transparent text-mccann-light-grey"
     role="navigation"
   >
-    <li><a href="/Work">Work</a></li>
-    <li><a href="/team/">Team</a></li>
-    <li><a href="/about/">About</a></li>
-    <li><a href="/w-label/">White Label</a></li>
+    <li><a href="/work" class="py-5 px-5 hover:bg-[url('/svg/work-link-hover.svg')] bg-no-repeat bg-contain bg-center">Work</a></li>
+    <li><a href="/team" class="py-5 pb-3 px-5 hover:bg-[url('/svg/team-link-hover.svg')] bg-no-repeat bg-contain bg-bottom">Team</a></li>
+    <li><a href="/about" class="py-5 px-5 hover:bg-[url('/svg/about-link-hover.svg')] bg-no-repeat bg-[height:50%_auto] bg-bottom ">About</a></li>
+    <li><a href="https://www.w-label.com" class="py-5 px-5 hover:bg-[url('/svg/w-label-link-hover.svg')] bg-no-repeat bg-[height:50%_auto] bg-bottom ">White Label</a></li>
   </ul>
   <ul
     data-state="closed"
@@ -127,12 +126,18 @@ import hamburger_close from "/svg/hamburger-close.svg";
     absolute top-0 left-0 z-30 bg-mccann-green w-full h-screen font-sofia_regular text-xl flex-col pt-20 px-12"
     role="navigation"
   >
-    <li class="flex my-12 justify-center"><a href="/Work">Work</a></li>
-    <li class="flex my-12 justify-center"><a href="/team/">Team</a></li>
-    <li class="flex my-12 justify-center"><a href="/about/">About</a></li>
-    <li class="flex my-12 justify-center"><a href="/w-label/">White Label</a></li>
+    <li class="flex my-12 justify-center"><a href="/work">Work</a></li>
+    <li class="flex my-12 justify-center"><a href="/team">Team</a></li>
+    <li class="flex my-12 justify-center"><a href="/about">About</a></li>
+    <li class="flex my-12 justify-center"><a href="https://www.w-label.com">White Label</a></li>
   </ul>
 </nav>
+
+<style>
+  nav a.active {
+    @apply text-mccann-green;
+  }
+</style>
 
 <script>
   const menuToggle = document.querySelector(".menu-toggle");
@@ -167,4 +172,22 @@ import hamburger_close from "/svg/hamburger-close.svg";
       { once: true }
     );
   }
+
+const navLinks = document.querySelectorAll("nav a");
+
+navLinks.forEach((link) => {
+  link.classList.remove("active");
+
+  // `slice` here to remove the first `/` in pathname
+  const currentPath = window.location.pathname.slice("1");
+
+  // `link.href` returns a whole url, such as: "https://somedomain.com/posts" and we only need the last part
+  const hrefArray = link.href.split("/");
+  const thisPath = hrefArray[hrefArray.length - 1];
+
+  if (currentPath === thisPath) {
+    link.classList.add("active");
+  }
+});
+
 </script>
