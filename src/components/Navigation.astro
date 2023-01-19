@@ -1,4 +1,5 @@
 ---
+
 import hamburger from "/svg/hamburger.svg";
 import hamburger_close from "/svg/hamburger-close.svg";
 
@@ -185,7 +186,7 @@ navLinks.forEach((link) => {
   const hrefArray = link.href.split("/");
   const thisPath = hrefArray[hrefArray.length - 1];
 
-  if (currentPath === thisPath) {
+  if (currentPath === thisPath && thisPath !== "") {
     link.classList.add("active");
   }
 });

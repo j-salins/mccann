@@ -13,7 +13,10 @@ module.exports = {
 			fontFamily: {
 				overpriced: ['Overpriced', 'sans-serif'],
 				sofia_regular: ['SofiaProRegular'],
-			}
+			},
+			aspectRatio: {
+        '4/5': '4 / 5',
+      },
 		},
 	},
 	plugins: [require("autoprefixer")],

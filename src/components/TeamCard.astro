@@ -8,8 +8,14 @@ export interface Props {
 const { src, name, occupation } = Astro.props;
 ---
 
-<div class="mb-12">
-  <img src={src} alt="" class="object-cover" width="1000px" height="1500px" loading="lazy">
+<div class="relative mb-12">
+  <div class="image-container relative">
+    <div class="overlay absolute left-0 top-0 right-0 bottom-0 h-100 w-100 transition delay-50 duration-300 opacity-0 bg-black/[.6] hover:opacity-100">
+      <p class="p-7">Kristaps spots what others overlook and does what others wouldn't.
+        He ruthlessly scraps the irrelevant to highlight what matters, be it a brand strategy or a new way to build business. His approach is careful and considerate, while his radically minimalist strategies do sting hard. Especially if you're a competitor to a brand he's working for.</p>
+    </div>
+    <img src={src} alt="" class="object-cover" width="1000px" height="1500px" loading="lazy">
+  </div>
   <h5 set:html={name} class=" pt-2 text-2xl text-mccann-light-grey"/>
   <p set:html={occupation} class=" font-overpriced text-mccann-dark-grey " />
 </div>

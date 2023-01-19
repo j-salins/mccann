@@ -12,11 +12,13 @@ import TeamCard from '../components/TeamCard.astro';
 		<section class="bg-[url('/svg/team-sec1-1.svg')] bg-no-repeat bg-top">
 			<div class="container md:flex">
 				<div class="md:w-2/3 pb-20 md:pb-32">
-					<h1 class="font-thin text-5xl md:text-7xl  text-mccann-light-grey leading-tight">The team one could only dream of
+					<h1 class="transition delay-100 duration-700 opacity-0 font-thin text-5xl md:text-7xl  text-mccann-light-grey leading-tight"
+          data-replace='{"opacity-0": "opacity-100" }'>
+          The team one could only dream of
           </h1>
 				</div>
 			</div>
-      <div class="team-grid container grid grid-cols-4 gap-2">
+      <div class="team-grid container grid grid-cols-1 md:grid-cols-4 gap-2">
         <TeamCard 
         name="Kristaps <br/> Siliņš"
         occupation="PARTNER, CEO, <br/> Head of Strategy"

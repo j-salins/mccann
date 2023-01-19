@@ -8,16 +8,85 @@ import Footer from '../components/Footer.astro';
 <Layout title="Work - Mccann">
 	<Header />
 	<main>
-		<section class="bg-[url('/svg/home-sec1-1.svg')] bg-no-repeat bg-contain bg-center md:h-[1100px]">
-			<div class="container md:flex">
+		<section class="">
+			<div class="container mb-0 pb-0 bg-[url('/svg/work-sec1-1.svg')] bg-no-repeat bg-right-top">
 				<div class="md:w-2/3 pb-20 md:pb-32">
-					<h1 class="font-thin text-5xl md:text-8xl  text-mccann-light-grey leading-tight">We’ll let our work speak for itself
+					<h1 class="
+					transition delay-100 duration-700 opacity-0 font-thin text-5xl md:text-8xl  
+					text-mccann-light-grey leading-tight"
+					data-replace='{"opacity-0": "opacity-100" }'>
+					We’ll let our work speak for itself
 					</h1>
 				</div>
-		
-				<div class="md:w-1/3 flex flex-col justify-end">
-					<h3 class=" font-overpriced text-3xl text-mccann-dark-grey pb-8">We create ads <br> that speak volumes.</h3>
-					<a href="#" class="font-overpriced text-xl text-mccann-green">Ready to talk?</a>
+				<nav role="navigation">
+					<ul class="work-nav flex flex-nowrap font-overpriced md:text-xl gap-7 cursor-pointer overflow-x-scroll md:overflow-x-clip py-4">
+						<li class=" text-mccann-green whitespace-nowrap">All</li>
+						<li class="transition text-mccann-dark-grey hover:text-mccann-light-grey whitespace-nowrap">Campaigns</li>
+						<li class="transition text-mccann-dark-grey hover:text-mccann-light-grey whitespace-nowrap">Branding / Rebranding</li>
+						<li class="transition text-mccann-dark-grey hover:text-mccann-light-grey whitespace-nowrap">Design / Ilustration</li>
+					</ul>
+				</nav>
+			</div>
+		</section>
+		<section id="work">
+			<div class="container pt-0 mt-0">
+				<div class="work-grid grid grid-cols-2 md:grid-cols-3 gap-2 items-stretch">
+					<div class="image-container relative">
+						<div class="overlay p-7 absolute left-0 top-0 right-0 bottom-0 h-100 w-100 transition delay-50 duration-300 opacity-0 bg-black/[.8] md:hover:opacity-100">
+							<h1 class="text-3xl pb-4">Project name</h1>
+							<p>Kristaps spots what others overlook and does what others wouldn't.
+								He ruthlessly scraps the irrelevant to highlight what matters, be it a brand strategy or a new way to build business. His approach is careful and considerate, while his radically minimalist strategies do sting hard. Especially if you're a competitor to a brand he's working for.</p>
+						</div>
+						<img class="w-full h-full aspect-4/5 object-cover" src="/work/01.jpg" />
+					</div>
+					<div class="image-container relative">
+						<div class="overlay p-7 absolute left-0 top-0 right-0 bottom-0 h-100 w-100 transition delay-50 duration-300 opacity-0 bg-black/[.8] md:hover:opacity-100">
+							<h1 class="text-3xl pb-4">Project name</h1>
+							<p>Kristaps spots what others overlook and does what others wouldn't.
+								He ruthlessly scraps the irrelevant to highlight what matters, be it a brand strategy or a new way to build business. His approach is careful and considerate, while his radically minimalist strategies do sting hard. Especially if you're a competitor to a brand he's working for.</p>
+						</div>
+						<img class="w-full h-full aspect-4/5  object-cover" src="/work/02.jpg" />
+					</div>
+					<div class="image-container relative">
+						<div class="overlay p-7 absolute left-0 top-0 right-0 bottom-0 h-100 w-100 transition delay-50 duration-300 opacity-0 bg-black/[.8] md:hover:opacity-100">
+							<h1 class="text-3xl pb-4">Project name</h1>
+							<p>Kristaps spots what others overlook and does what others wouldn't.
+								He ruthlessly scraps the irrelevant to highlight what matters, be it a brand strategy or a new way to build business. His approach is careful and considerate, while his radically minimalist strategies do sting hard. Especially if you're a competitor to a brand he's working for.</p>
+						</div>
+						<img class="w-full h-full aspect-4/5  object-cover" src="/work/03.jpg" />
+					</div>
+					<div class="image-container relative md:col-span-2">
+						<div class="overlay p-7 absolute left-0 top-0 right-0 bottom-0 h-100 w-100 transition delay-50 duration-300 opacity-0 bg-black/[.8] md:hover:opacity-100">
+							<h1 class="text-3xl pb-4">Project name</h1>
+							<p>Kristaps spots what others overlook and does what others wouldn't.
+								He ruthlessly scraps the irrelevant to highlight what matters, be it a brand strategy or a new way to build business. His approach is careful and considerate, while his radically minimalist strategies do sting hard. Especially if you're a competitor to a brand he's working for.</p>
+						</div>
+						<img class="w-full h-full aspect-video object-cover" src="/work/04.jpg" />
+					</div>
+					<div class="image-container relative">
+						<div class="overlay p-7 absolute left-0 top-0 right-0 bottom-0 h-100 w-100 transition delay-50 duration-300 opacity-0 bg-black/[.8] md:hover:opacity-100">
+							<h1 class="text-3xl pb-4">Project name</h1>
+							<p>Kristaps spots what others overlook and does what others wouldn't.
+								He ruthlessly scraps the irrelevant to highlight what matters, be it a brand strategy or a new way to build business. His approach is careful and considerate, while his radically minimalist strategies do sting hard. Especially if you're a competitor to a brand he's working for.</p>
+						</div>
+						<img class="w-full h-full aspect-4/5  object-cover" src="/work/05.jpg" />
+					</div>
+					<div class="image-container relative">
+						<div class="overlay p-7 absolute left-0 top-0 right-0 bottom-0 h-100 w-100 transition delay-50 duration-300 opacity-0 bg-black/[.8] md:hover:opacity-100">
+							<h1 class="text-3xl pb-4">Project name</h1>
+							<p>Kristaps spots what others overlook and does what others wouldn't.
+								He ruthlessly scraps the irrelevant to highlight what matters, be it a brand strategy or a new way to build business. His approach is careful and considerate, while his radically minimalist strategies do sting hard. Especially if you're a competitor to a brand he's working for.</p>
+						</div>
+						<img class="w-full h-full aspect-4/5  object-cover" src="/work/06.jpg" />
+					</div>
+					<div class="image-container relative md:col-span-2">
+						<div class="overlay p-7 absolute left-0 top-0 right-0 bottom-0 h-100 w-100 transition delay-50 duration-300 opacity-0 bg-black/[.8] md:hover:opacity-100">
+							<h1 class="text-3xl pb-4">Project name</h1>
+							<p>Kristaps spots what others overlook and does what others wouldn't.
+								He ruthlessly scraps the irrelevant to highlight what matters, be it a brand strategy or a new way to build business. His approach is careful and considerate, while his radically minimalist strategies do sting hard. Especially if you're a competitor to a brand he's working for.</p>
+						</div>
+						<img class="w-full h-full aspect-video object-cover" src="/work/07.jpg" />
+					</div>
 				</div>
 			</div>
 		</section>
