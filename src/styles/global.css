@@ -12,7 +12,6 @@
   src: url('/fonts/SofiaProRegular.woff') format('woff');
 }
 
-
 @layer base {
   html {
     font-family: SofiaProRegular, system-ui, sans-serif;
