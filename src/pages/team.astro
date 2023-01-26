@@ -30,7 +30,8 @@ import TeamCard from '../components/TeamCard.astro';
         <TeamCard 
         name="Valters <br/> Jonats"
         occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/valters.jpg" />
+        src="../team-assets/valters.jpg"
+        doodle_src="/svg/work-doodle-valters.svg" />
         <TeamCard 
         name="Ieva <br/> Daneljana"
         occupation="PARTNER, CEO, <br/> Head of Strategy"
@@ -42,11 +43,13 @@ import TeamCard from '../components/TeamCard.astro';
         <TeamCard 
         name="Kristaps <br/> Siliņš"
         occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/toms.jpg" />
+        src="../team-assets/toms.jpg"
+        doodle_src="/svg/work-doodle-toms.svg" />
         <TeamCard 
         name="Kristaps <br/> Siliņš"
         occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/sintija.jpg" />
+        src="../team-assets/sintija.jpg"
+        doodle_src="/svg/work-doodle-sintija.svg" />
         <TeamCard 
         name="Kristaps <br/> Siliņš"
         occupation="PARTNER, CEO, <br/> Head of Strategy"
@@ -54,7 +57,8 @@ import TeamCard from '../components/TeamCard.astro';
         <TeamCard 
         name="Kristaps <br/> Siliņš"
         occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/gunta.jpg" />
+        src="../team-assets/gunta.jpg"
+        doodle_src="/svg/work-doodle-gunta.svg" />
         <TeamCard 
         name="Kristaps <br/> Siliņš"
         occupation="PARTNER, CEO, <br/> Head of Strategy"
@@ -62,7 +66,8 @@ import TeamCard from '../components/TeamCard.astro';
         <TeamCard 
         name="Kristaps <br/> Siliņš"
         occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/zaga.jpg" />
+        src="../team-assets/zaga.jpg" 
+        doodle_src="/svg/work-doodle-zaga.svg"/>
         <TeamCard 
         name="Kristaps <br/> Siliņš"
         occupation="PARTNER, CEO, <br/> Head of Strategy"
@@ -74,7 +79,8 @@ import TeamCard from '../components/TeamCard.astro';
         <TeamCard 
         name="Kristaps <br/> Siliņš"
         occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/linda.jpg" />
+        src="../team-assets/linda.jpg"
+        doodle_src="/svg/work-doodle-linda.svg" />
         <TeamCard 
         name="Kristaps <br/> Siliņš"
         occupation="PARTNER, CEO, <br/> Head of Strategy"
@@ -82,11 +88,13 @@ import TeamCard from '../components/TeamCard.astro';
         <TeamCard 
         name="Kristaps <br/> Siliņš"
         occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/kristaps-b.jpg" />
+        src="../team-assets/kristaps-b.jpg" 
+        doodle_src="/svg/work-doodle-kristaps-b.svg"/>
         <TeamCard 
         name="Kristaps <br/> Siliņš"
         occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/alise.jpg" />
+        src="../team-assets/alise.jpg"
+        doodle_src="/svg/work-doodle-alise.svg" />
         <TeamCard 
         name="Kristaps <br/> Siliņš"
         occupation="PARTNER, CEO, <br/> Head of Strategy"
@@ -94,7 +102,8 @@ import TeamCard from '../components/TeamCard.astro';
         <TeamCard 
         name="Kristaps <br/> Siliņš"
         occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/dita.jpg" />
+        src="../team-assets/dita.jpg"
+        doodle_src="/svg/work-doodle-dita.svg" />
         <TeamCard 
         name="Kristaps <br/> Siliņš"
         occupation="PARTNER, CEO, <br/> Head of Strategy"
@@ -109,29 +118,38 @@ import TeamCard from '../components/TeamCard.astro';
 	<Footer />
 </Layout>
 
-
-
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function(){
 
-    const listItems = document.querySelector('.team-grid').children;
+    const listItems = document.querySelector('.team-grid').querySelectorAll(".doodle-overlay:not([src=''])");
     const listArray = Array.from(listItems);
+    var pickedItem = undefined;
+    var i = 0;
 
     //console.log(listArray)
 
-    listArray.forEach((item) => {
+    pickedItem = listArray[0];
+    pickedItem.classList.toggle("invisible");
 
-      let doodle_overlay = item.querySelector('.doodle-overlay');
+    setInterval(() => {
+          if (Math.random()<=0.66) // Chance = 1/3
+          pickRandomItem(listArray);
+        }, 2e3);
 
-      if(doodle_overlay.getAttribute('url') != "") {
-        console.log(doodle_overlay.getAttribute('url'))
-        setInterval(() => {
-          if (Math.random()<=0.33) // Chance = 1/3
-          doodle_overlay.style.visibility === "hidden" ? doodle_overlay.style.visibility = "visible" : doodle_overlay.style.visibility = "hidden"; // If the element's visibility is set hidden, then set it back to visible and vice versa
-        }, 1e3);
+    function pickRandomItem(arr){
+
+      if (typeof arr !== undefined && arr.length > 0) {
+        if(pickedItem != undefined) {
+          console.log("remove doodle");
+          pickedItem.classList.toggle("invisible");
+        }
+
+        let doodle_overlay = undefined;
+        //pickedItem = arr[Math.floor(Math.random()*arr.length)]
+        pickedItem = undefined;
+        pickedItem = arr[Math.floor(Math.random()*arr.length)];
+        pickedItem.classList.toggle("invisible");
       }
-
-    });
-    
+    }
   });
 </script>
