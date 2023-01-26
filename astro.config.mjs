@@ -4,8 +4,11 @@ import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
+import compress from "astro-compress";
+
+// https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind()],
-  site: 'https://j-salins.github.io',
-  base: '/mccann',
+  integrations: [tailwind(), compress()]
+  // site: 'https://j-salins.github.io',
+  // base: '/mccann',
 });
