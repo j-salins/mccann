@@ -11,7 +11,7 @@ const { src = '', doodle_src = '', name = '', occupation = '' } = Astro.props;
 
 <div class="card opacity-0 translate-y-[100px] relative mb-12">
   <div class="image-container relative">
-    <img src={src} alt="" class="object-cover" width="1000px" height="1500px" loading="lazy">
+    <img src={src} alt="" class="object-cover" width="1000px" height="1500px">
     <img src={doodle_src} class="absolute doodle-overlay opacity-0 transition delay-50 duration-170 top-0 bottom-0 left-0 right-0 w-full h-full aspect-4/5 object-cover pointer-events-none" alt="">
     <div class="overlay absolute left-0 top-0 right-0 bottom-0 h-100 w-100 transition delay-50 duration-300 opacity-0 bg-black/[.6] hover:opacity-100">
       <p class="p-7">Kristaps spots what others overlook and does what others wouldn't.

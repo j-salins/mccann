@@ -8,7 +8,7 @@ import compress from "astro-compress";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), compress()]
-  // site: 'https://j-salins.github.io',
-  // base: '/mccann',
+  integrations: [tailwind(), compress()],
+  site: 'https://j-salins.github.io',
+  base: '/mccann',
 });
