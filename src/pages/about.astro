@@ -8,18 +8,47 @@ import Footer from '../components/Footer.astro';
 <Layout title="Work - Mccann">
 	<Header />
 	<main>
-		<section class="bg-[url('/svg/home-sec1-1.svg')] bg-no-repeat bg-contain bg-center md:h-[1100px]">
-			<div class="container md:flex">
-				<div class="md:w-2/3 pb-20 md:pb-32">
-					<h1 class="font-thin text-5xl md:text-8xl  text-mccann-light-grey leading-tight">We believe in Calculated <br>Risk</h1>
-					<p class="font-thin text-xl pt-3 max-w-[290px] md:max-w-xs">Part of McCann Worldgroup  global advertising agency network.</p>
+		<section class="">
+			<div class="container pb-0 md:flex">
+				<div class="md:w-1/2 pb-20 md:pb-32">
+					<p class="font-thin text-xl md:text-3xl pt-3 max-w-[290px] md:max-w-sm mb-8">Proud member of leading <br> global agency network.</p>
+					<h1 class="font-thin text-5xl md:text-7xl  text-mccann-light-grey leading-tight">McCann<br>Worldgroup</h1>
 				</div>
 		
-				<div class="md:w-1/3 flex flex-col justify-end">
-					<h3 class=" font-overpriced text-3xl text-mccann-dark-grey pb-8">We create ads <br> that speak volumes.</h3>
-					<a href="#" class="font-overpriced text-xl text-mccann-green">Ready to talk?</a>
+				<div class="md:w-1/2 flex flex-col">
+					<img src="/svg/about-globe.svg" alt="">
 				</div>
 			</div>
+		</section>
+		<section>
+			<dir class="container pt-0">
+				<h3 class="text-xl text-center block mb-10">Reasons to call us right now:</h3>
+				<div class="tags flex flex-wrap items-center justify-center gap-10 whitespace-nowrap mx-auto md:w-[550px]">
+					<a href="" class=" text-mccann-green text-xl font-overpriced ">ATL/BTL CAMPAIGNS</a>
+					<a href="" class=" text-mccann-green text-xl font-overpriced ">BRAND LAUNCH</a>
+					<a href="" class=" text-mccann-green text-xl font-overpriced self-center ">STRATEGY</a>
+					<a href="" class=" text-mccann-green text-xl font-overpriced ">ANALYSIS</a>
+					<a href="" class=" text-mccann-green text-xl font-overpriced ">DESIGN</a>
+					<a href="" class=" text-mccann-green text-xl font-overpriced ">PR</a>
+					<a href="" class=" text-mccann-green text-xl font-overpriced ">BRANDING</a>
+					<a href="" class=" text-mccann-green text-xl font-overpriced ">DIGITAL</a>
+					<a href="" class=" text-mccann-green text-xl font-overpriced ">PRODUCTION</a>
+					<a href="" class=" text-mccann-green text-xl font-overpriced ">WEB</a>
+					<a href="" class=" text-mccann-green text-xl font-overpriced ">SOCIAL</a>
+				</div>
+				<div class="text-center mt-44 mb-32">
+					<a href="tel:+371 67 503 314" class="md:text-2xl text-center relative
+					after:content-[url('/svg/about-phone.svg')] 
+					after:absolute after:-z-1 
+					after:scale-50 
+					md:after:scale-75 
+					after:top-1/2 
+					after:-translate-y-1/2 
+					after:left-1/2 
+					after:-translate-x-1/2 
+					scale-50">+371 67 503 314</a>
+				</div>
+			</dir>
 		</section>
 	</main>
 	<Footer />
