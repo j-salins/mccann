@@ -3,14 +3,23 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import TeamCard from '../components/TeamCard.astro';
-
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+const imgPath:string = 'http://127.0.0.1:8090/api/files'
+
+const data = await fetch(
+  'http://127.0.0.1:8090/api/collections/team/records'
+).then(res => res.json());
+
+
 ---
 
 <Layout title="Team - Mccann">
 	<Header />
 	<main>
+    <h1 class="hidden">{JSON.stringify(data.items)}</h1>
+
 		<section class="bg-[url('/svg/team-sec1-1.svg')] bg-no-repeat bg-top">
 			<div class="container md:flex">
 				<div class="md:w-2/3 pb-20 md:pb-32">
@@ -21,100 +30,16 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 				</div>
 			</div>
       <div class="team-grid container grid grid-cols-1 md:grid-cols-4 gap-2">
-        <TeamCard 
-        name="Kristaps <br/> Siliņš"
-        occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src='../team-assets/kristaps-s.jpg'
-        doodle_src="../svg/work-doodle-kristaps-s.svg" />
-        <TeamCard 
-        name="Ainārs <br/> Scipcinskis"
-        occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/ainars.jpg" />
-        <TeamCard 
-        name="Valters <br/> Jonats"
-        occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/valters.jpg"
-        doodle_src="../svg/work-doodle-valters.svg" />
-        <TeamCard 
-        name="Ieva <br/> Daneljana"
-        occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/ieva.jpg" />
-        <TeamCard 
-        name="Kristaps <br/> Siliņš"
-        occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/madara.jpg" />
-        <TeamCard 
-        name="Kristaps <br/> Siliņš"
-        occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/toms.jpg"
-        doodle_src="../svg/work-doodle-toms.svg" />
-        <TeamCard 
-        name="Kristaps <br/> Siliņš"
-        occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/sintija.jpg"
-        doodle_src="../svg/work-doodle-sintija.svg" />
-        <TeamCard 
-        name="Kristaps <br/> Siliņš"
-        occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/anete.jpg" />
-        <TeamCard 
-        name="Kristaps <br/> Siliņš"
-        occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/gunta.jpg"
-        doodle_src="../svg/work-doodle-gunta.svg" />
-        <TeamCard 
-        name="Kristaps <br/> Siliņš"
-        occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/gatis.jpg" />
-        <TeamCard 
-        name="Kristaps <br/> Siliņš"
-        occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/zaga.jpg" 
-        doodle_src="../svg/work-doodle-zaga.svg"/>
-        <TeamCard 
-        name="Kristaps <br/> Siliņš"
-        occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/ilze.jpg" />
-        <TeamCard 
-        name="Kristaps <br/> Siliņš"
-        occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/roberts.jpg" />
-        <TeamCard 
-        name="Kristaps <br/> Siliņš"
-        occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/linda.jpg"
-        doodle_src="../svg/work-doodle-linda.svg" />
-        <TeamCard 
-        name="Kristaps <br/> Siliņš"
-        occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/evija.jpg" />
-        <TeamCard 
-        name="Kristaps <br/> Siliņš"
-        occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/kristaps-b.jpg" 
-        doodle_src="../svg/work-doodle-kristaps-b.svg"/>
-        <TeamCard 
-        name="Kristaps <br/> Siliņš"
-        occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/alise.jpg"
-        doodle_src="../svg/work-doodle-alise.svg" />
-        <TeamCard 
-        name="Kristaps <br/> Siliņš"
-        occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/marta.jpg" />
-        <TeamCard 
-        name="Kristaps <br/> Siliņš"
-        occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/dita.jpg"
-        doodle_src="../svg/work-doodle-dita.svg" />
-        <TeamCard 
-        name="Kristaps <br/> Siliņš"
-        occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/maruta.jpg" />
-        <TeamCard 
-        name="Kristaps <br/> Siliņš"
-        occupation="PARTNER, CEO, <br/> Head of Strategy"
-        src="../team-assets/dace.jpg" />
+
+        {data.items.map((item) => (
+          <TeamCard 
+          name={item.name}
+          occupation={item.occupation}
+          src={imgPath + "/" + item.collectionName + "/" + item.id + "/"  + item.image}
+          doodle_src="../svg/work-doodle-kristaps-s.svg"
+          description={item.description} />
+         ))}
+         
         <div class="join-card opacity-0 translate-x-[50px] relative flex flex-col mb-12 ml-2">
           <div class="image-container relative flex-1">
             <img src="../svg/work-doodle-join.svg" width="1000px" height="1500px" class=" object-top object-fill

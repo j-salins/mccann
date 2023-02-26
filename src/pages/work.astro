@@ -2,6 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import WorkCard from '../components/WorkCard.astro';
+
+const imgPath:string = 'http://127.0.0.1:8090/api/files'
+
+const data = await fetch(
+  'http://127.0.0.1:8090/api/collections/work/records'
+).then(res => res.json());
 
 ---
 
@@ -31,69 +38,15 @@ import Footer from '../components/Footer.astro';
 		<section id="work">
 			<div class="container pt-0 mt-0">
 				<div class="work-grid grid grid-cols-2 md:grid-cols-3 gap-2 items-stretch">
-					<div class="image-container overflow-hidden relative">
-						
-						<img class="image translate-x-[101%] w-full h-full aspect-4/5 object-cover" src="../work-assets/01.jpg" />
-						<div class="overlay p-7 absolute left-0 top-0 right-0 bottom-0 h-100 w-100 transition delay-50 duration-300 opacity-0 bg-black/[.8] md:hover:opacity-100">
-							<h1 class="text-3xl pb-4">Project name</h1>
-							<p>Kristaps spots what others overlook and does what others wouldn't.
-								He ruthlessly scraps the irrelevant to highlight what matters, be it a brand strategy or a new way to build business. His approach is careful and considerate, while his radically minimalist strategies do sting hard. Especially if you're a competitor to a brand he's working for.</p>
-						</div>
-					</div>
-					<div class="image-container overflow-hidden relative">
-						
-						<img class="image translate-x-[101%] w-full h-full aspect-4/5  object-cover" src="../work-assets/02.jpg" />
-						<div class="overlay p-7 absolute left-0 top-0 right-0 bottom-0 h-100 w-100 transition delay-50 duration-300 opacity-0 bg-black/[.8] md:hover:opacity-100">
-							<h1 class="text-3xl pb-4">Project name</h1>
-							<p>Kristaps spots what others overlook and does what others wouldn't.
-								He ruthlessly scraps the irrelevant to highlight what matters, be it a brand strategy or a new way to build business. His approach is careful and considerate, while his radically minimalist strategies do sting hard. Especially if you're a competitor to a brand he's working for.</p>
-						</div>
-					</div>
-					<div class="image-container overflow-hidden relative">
-						
-						<img class="image translate-x-[101%] w-full h-full aspect-4/5  object-cover" src="../work-assets/03.jpg" />
-						<div class="overlay p-7 absolute left-0 top-0 right-0 bottom-0 h-100 w-100 transition delay-50 duration-300 opacity-0 bg-black/[.8] md:hover:opacity-100">
-							<h1 class="text-3xl pb-4">Project name</h1>
-							<p>Kristaps spots what others overlook and does what others wouldn't.
-								He ruthlessly scraps the irrelevant to highlight what matters, be it a brand strategy or a new way to build business. His approach is careful and considerate, while his radically minimalist strategies do sting hard. Especially if you're a competitor to a brand he's working for.</p>
-						</div>
-					</div>
-					<div class="image-container overflow-hidden relative md:col-span-2">
-						
-						<img class="image translate-x-[101%] w-full h-full aspect-video object-cover" src="../work-assets/04.jpg" />
-						<div class="overlay p-7 absolute left-0 top-0 right-0 bottom-0 h-100 w-100 transition delay-50 duration-300 opacity-0 bg-black/[.8] md:hover:opacity-100">
-							<h1 class="text-3xl pb-4">Project name</h1>
-							<p>Kristaps spots what others overlook and does what others wouldn't.
-								He ruthlessly scraps the irrelevant to highlight what matters, be it a brand strategy or a new way to build business. His approach is careful and considerate, while his radically minimalist strategies do sting hard. Especially if you're a competitor to a brand he's working for.</p>
-						</div>
-					</div>
-					<div class="image-container overflow-hidden relative">
-						
-						<img class="image translate-x-[101%] w-full h-full aspect-4/5  object-cover" src="../work-assets/05.jpg" />
-						<div class="overlay p-7 absolute left-0 top-0 right-0 bottom-0 h-100 w-100 transition delay-50 duration-300 opacity-0 bg-black/[.8] md:hover:opacity-100">
-							<h1 class="text-3xl pb-4">Project name</h1>
-							<p>Kristaps spots what others overlook and does what others wouldn't.
-								He ruthlessly scraps the irrelevant to highlight what matters, be it a brand strategy or a new way to build business. His approach is careful and considerate, while his radically minimalist strategies do sting hard. Especially if you're a competitor to a brand he's working for.</p>
-						</div>
-					</div>
-					<div class="image-container overflow-hidden relative">
-						
-						<img class="image translate-x-[101%] w-full h-full aspect-4/5  object-cover" src="../work-assets/06.jpg" />
-						<div class="overlay p-7 absolute left-0 top-0 right-0 bottom-0 h-100 w-100 transition delay-50 duration-300 opacity-0 bg-black/[.8] md:hover:opacity-100">
-							<h1 class="text-3xl pb-4">Project name</h1>
-							<p>Kristaps spots what others overlook and does what others wouldn't.
-								He ruthlessly scraps the irrelevant to highlight what matters, be it a brand strategy or a new way to build business. His approach is careful and considerate, while his radically minimalist strategies do sting hard. Especially if you're a competitor to a brand he's working for.</p>
-						</div>
-					</div>
-					<div class="image-container overflow-hidden relative md:col-span-2">
-						
-						<img class="image translate-x-[101%] w-full h-full aspect-video object-cover" src="../work-assets/07.jpg" />
-						<div class="overlay p-7 absolute left-0 top-0 right-0 bottom-0 h-100 w-100 transition delay-50 duration-300 opacity-0 bg-black/[.8] md:hover:opacity-100">
-							<h1 class="text-3xl pb-4">Project name</h1>
-							<p>Kristaps spots what others overlook and does what others wouldn't.
-								He ruthlessly scraps the irrelevant to highlight what matters, be it a brand strategy or a new way to build business. His approach is careful and considerate, while his radically minimalist strategies do sting hard. Especially if you're a competitor to a brand he's working for.</p>
-						</div>
-					</div>
+
+					{data.items.map((item) => (
+						<WorkCard 
+						name={item.name}
+						src={imgPath + "/" + item.collectionName + "/" + item.id + "/"  + item.image}
+						description={item.description}
+						colspan={item.column_size} />
+					 ))}
+					 
 				</div>
 			</div>
 		</section>

@@ -1,0 +1,19 @@
+---
+export interface Props {
+	name: string;
+  description: string;
+	src: string;
+  colspan: string;
+}
+
+const { src = '', name = '', description = '', colspan = '' } = Astro.props;
+
+---
+
+<div class:list={['image-container overflow-hidden relative', { 'md:col-span-2': colspan == '2' }]}>
+  <img class:list={["image translate-x-[101%] w-full h-full object-cover", {'aspect-4/5': colspan != '2'}, {'aspect-video': colspan == '2'}]} src={src} />
+  <div class="overlay p-7 absolute left-0 top-0 right-0 bottom-0 h-100 w-100 transition delay-50 duration-300 opacity-0 bg-black/[.8] md:hover:opacity-100">
+    <h1 class="text-3xl pb-4">{name}</h1>
+    <p>{description}</p>
+  </div>
+</div>
